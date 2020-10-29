@@ -57,7 +57,6 @@ C_h	.req	x12
 D_l	.req	x13
 D_h	.req	x14
 
-	.weak memmove
 ENTRY(__memmove)
 ENTRY(memmove)
 	prfm    pldl1strm, [src, #L1_CACHE_BYTES]
