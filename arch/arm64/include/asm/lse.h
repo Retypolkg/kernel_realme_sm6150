@@ -6,6 +6,9 @@
 
 #include <linux/compiler_types.h>
 #include <linux/export.h>
+
+#define __LSE_PREAMBLE	".arch armv8-a+lse\n"
+
 #include <linux/stringify.h>
 #include <asm/alternative.h>
 #include <asm/cpucaps.h>
@@ -19,8 +22,6 @@
 .endm
 
 #else	/* __ASSEMBLER__ */
-
-__asm__(".arch_extension	lse");
 
 /* Move the ll/sc atomics out-of-line */
 #define __LL_SC_INLINE		notrace
